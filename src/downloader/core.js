@@ -11,8 +11,8 @@ import { sudPath, calculateRanges, getRangeHeaders, fsReadFile, createRequest, p
 //see https://rxjs.dev/api/index/function/bindNodeCallback for more info
 const requestHead = bindNodeCallback(request.head)
 
-export function getMetadata(url, threads, savePath, saveDir) {
-	return requestHead(url).pipe(
+export function getMetadata(url, headUrl, threads, savePath, saveDir) {
+	return requestHead(headUrl).pipe(
 		mergeMap(x => {
 			var response = x[0]
 			var { statusCode } = response

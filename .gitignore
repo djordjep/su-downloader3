@@ -2,3 +2,4 @@ node_modules
 dist
 test/downloads/big
 build
+.history/

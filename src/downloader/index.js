@@ -19,8 +19,9 @@ function startDownload(locations, { threads = 4, timeout = 3*60*1000, headers = 
 
 		//starting new download with save path
 		//only one of savePath and saveDir should be defined, however, neither of them need to be defined
-		var { url, savePath, saveDir } = locations
-		meta$ = getMetadata(url, threads, savePath, saveDir)
+		var { url, headUrl, savePath, saveDir } = locations
+		if(!headUrl) headUrl = url;
+		meta$ = getMetadata(url, headUrl, threads, savePath, saveDir)
 
 	}
 
